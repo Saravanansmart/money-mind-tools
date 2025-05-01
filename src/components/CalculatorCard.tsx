@@ -15,19 +15,23 @@ interface CalculatorCardProps {
 
 const CalculatorCard = ({ title, description, icon: Icon, path, color }: CalculatorCardProps) => {
   return (
-    <Card className="h-full transition-all duration-300 hover:shadow-xl border-t-4 hover:scale-[1.02] group">
-      <div className="h-full flex flex-col" style={{ borderTopColor: color }}>
+    <Card className="h-full border shadow-sm hover:shadow-md transition-all duration-300">
+      <div 
+        className="h-full flex flex-col" 
+        style={{ borderTop: `4px solid ${color}` }}
+      >
         <CardHeader>
           <div className="flex items-center gap-3">
             <div 
-              className="p-3 rounded-full transition-all duration-300 group-hover:rotate-6" 
               style={{ 
                 backgroundColor: `${color}25`, 
                 color: color,
-                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)' 
+                padding: '0.75rem',
+                borderRadius: '9999px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
               }}
             >
-              <Icon className="h-7 w-7" />
+              <Icon className="h-6 w-6" />
             </div>
             <CardTitle className="text-xl font-semibold">{title}</CardTitle>
           </div>
@@ -39,11 +43,13 @@ const CalculatorCard = ({ title, description, icon: Icon, path, color }: Calcula
         <CardFooter>
           <Button 
             asChild 
-            className="w-full transition-all duration-300 hover:brightness-110" 
             style={{ 
+              width: '100%',
               backgroundColor: color,
-              boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)'
+              color: 'white',
+              transition: 'all 0.3s ease'
             }}
+            className="hover:opacity-90"
           >
             <Link to={path}>Calculate Now</Link>
           </Button>
